@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int n, i, j, isIdentity = 1;
+
+    printf("Enter size of square matrix: ");
+    scanf("%d", &n);
+
+    int matrix[n][n];
+
+    printf("Enter elements of matrix:\n");
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < n; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < n; j++) {
+            if(i == j && matrix[i][j] != 1)
+                isIdentity = 0;
+            if(i != j && matrix[i][j] != 0)
+                isIdentity = 0;
+        }
+    }
+
+    if(isIdentity)
+        printf("Matrix is an Identity Matrix.\n");
+    else
+        printf("Matrix is NOT an Identity Matrix.\n");
+
+    return 0;
+}
